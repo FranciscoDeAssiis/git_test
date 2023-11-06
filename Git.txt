@@ -1,0 +1,599 @@
+Git é um sistema de controle de versão.
+O Git ajuda a acompanhar as alterações de código.
+O Git é usado para colaborar no código.
+O Git é um sistema de controle de versão popular. Foi criado por Linus Torvalds em 2005, e foi mantido por Junio Hamano desde então.
+
+É usado para:
+	Rastreando alterações de código
+	Rastreando quem fez as alterações
+	Colaboração de codificação
+
+O que o Git faz?
+	Gerenciar projetos com Repositórios
+	Clone um projeto para trabalhar em uma cópia local
+	Controle e rastreie as alterações com Encenamento e Comprometendo
+	Filial e Mesclar para permitir o trabalho diferentes partes e versões de um projeto
+	Puxar a versão mais recente do projeto para uma cópia local
+	Empurrar atualizações locais do projeto principal
+
+Trabalhando com o Git
+	Inicialize o Git em uma pasta, tornando-o um Repositório
+	O Git agora cria uma pasta oculta para acompanhar as alterações nessa pasta
+	Quando um arquivo é alterado, adicionado ou excluído, ele é considerado modificado
+	Você seleciona os arquivos modificados que deseja Palco
+	O Encenado arquivos são Comprometido, qual solicita ao Git que armazene um permanente instantâneo dos arquivos
+	O Git permite que você veja o histórico completo de cada confirmação.
+	Você pode voltar a qualquer confirmação anterior.
+	O Git não armazena uma cópia separada de cada arquivo em cada confirmação, mas acompanha as alterações feitas em cada confirmação!
+
+Por que Git?
+	Mais de 70% dos desenvolvedores usam o Git!
+	Os desenvolvedores podem trabalhar juntos de qualquer lugar do mundo.
+	Os desenvolvedores podem ver o histórico completo do projeto.
+	Os desenvolvedores podem reverter para versões anteriores de um projeto.
+
+O que é o GitHub?
+	Git não é o mesmo que GitHub.
+	O GitHub cria ferramentas que usam o Git.
+	O GitHub é o maior host de código-fonte do mundo e pertence a pela Microsoft desde 2018.
+	Neste tutorial, focaremos no uso do Git com o GitHub.
+
+Instalação:
+	Site:
+		https://git-scm.com/downloads
+
+	Pelo terminal:
+		winget install --id Git.Git -e --source winget
+
+Verificar instalação corretamente (use o terminal ou o Git Bash)
+		git --version
+		git -v
+
+
+Configurar Git:
+	Agora deixe o Git saber quem você é. Isso é importante para sistemas de controle de versão, como cada commit do Git usa essas informações baseadas na conta do repositório remoto (github):
+	git config --global user.name "w3schools-test"
+	git config --global user.email "test@w3schools.com"
+	
+	Nota: global para definir o nome de usuário e o email para todo repositório no seu computador. 
+	Se você deseja definir o nome de usuário/e-mail apenas para a repositorio atual, pode remover o global.
+	
+	mkdir myproject -> Criar um novo diretório
+	cd myproject -> Mudar para o diretório de trabalho
+	
+	Nota: Se você já possui uma pasta / diretório que gostaria de usar para o Git:
+		Navegue até ela na linha de comando ou abra-o no seu explorador de arquivos, clique com o botão direito do mouse e selecione "Git Bash here"
+		
+	Inicializar Git - inicializar o Git nessa pasta
+		git init 
+		Você acabou de criar seu primeiro repositório Git!
+		O Git agora sabe que deve monitorar a pasta em que você o iniciou.
+		O Git cria uma pasta oculta para acompanhar as alterações.
+
+Git Novos arquivos:
+	Vamos adicionar alguns arquivos ou criar um novo arquivo usando seu editor de texto favorito
+	lista os ficheiros no nosso diretório de trabalho atual:
+		ls
+	ver se faz parte do nosso repositorio:
+		git status
+	Git está ciente do arquivo, mas não o adicionou ao nosso repositório!
+	Os arquivos na pasta do repositório Git podem estar em um dos dois estados:
+		Tracked - arquivos que o Git conhece e são adicionados ao repositório
+		Untracked - arquivos que estão em seu diretório de trabalho, mas não adicionados ao repositório
+	Quando você adiciona arquivos pela primeira vez a um repositório vazio, todos eles não são rastreados. Para fazer o Git rastreá-los, você precisa testá-los ou adicioná-los ao ambiente de teste.
+
+Ambiente de preparação do Git:
+	Uma das principais funções do Git são os conceitos do Staging Environment e do Commit.
+	stagings - Os ficheiros preparados são ficheiros que estão prontos para serem confirmados no repositório em que está a trabalhar.
+	adiciona-los ao Staging Environment:
+		git add index.html
+	Você também pode preparar mais de um arquivo por vez. 
+	Git Adicionar mais de um arquivo
+	Você também pode preparar mais de um arquivo por vez. 
+	Vamos adicionar mais 2 arquivos à nossa pasta de trabalho. 
+	Use o editor de texto novamente.
+	Um arquivo README.md que descreve o repositório (recomendado para todos os repositórios):
+
+	Agora adicione todos os arquivos no diretório atual ao Staging Environment:
+		git add --all
+		Usar --all em vez de nomes de arquivos individuais preparará todas as 
+		alterações (novos, modificados e excluídos) arquivos.
+
+	Observação: o comando abreviado para git add --all é git add -A	
+	
+	use 'git status' para mostrar os arquivos que estam adicionados.
+
+	depois disso todos os arquivos foram adicionados ao Staging Environment e estamos prontos para fazer nosso primeiro commit.
+
+
+Git Commit:
+	Cada commit representa um estado específico dos arquivos.
+
+	Como terminamos nosso trabalho, estamos prontos para passar do estágio para o commit de nosso repo.
+
+	Quando nós comprometemos/commit, devemos sempre incluir uma mensagem.
+	Ao adicionar mensagens claras a cada commit, é fácil para você (e para os outros) ver o que mudou e quando.
+		
+		git commit -m "First release of Hello World!"
+
+		O comando commit efectua uma confirmação e o comando -m "message" adiciona uma mensagem.	
+		O ambiente de teste foi enviado para o nosso repositório, com a mensagem: "First release of Hello World!"
+
+	git: 
+		Isso indica que você está usando um comando do Git.
+	commit: 
+		Isso é o comando que você está executando. 
+		Um "commit" no Git é uma maneira de salvar as alterações feitas em seus arquivos, 
+		criando um ponto na história do seu projeto. 
+		Cada commit representa um estado específico dos arquivos.
+	-m: 
+		Isso é uma opção do comando commit. A opção -m é usada para adicionar uma mensagem de commit, 
+		que é uma breve descrição do que foi feito nas alterações. 
+		A mensagem ajuda a entender o propósito do commit.
+
+	"First release of Hello World!": 
+		Essa é a mensagem de commit que você está fornecendo. 
+		É uma descrição curta e clara do que essa alteração no código representa. 
+		No exemplo, a mensagem indica que essa é a primeira versão (lançamento) do código "First release of Hello World!".
+
+Git Commit sem Stage:
+	Faça uma alteração em algum dos arquivos adicionados no ambiente de testes e verifique o status 
+	do nosso repositório. Mas desta vez, vamos usar a opção --short para ver as alterações de uma forma mais compacta.
+		git status --short		
+	
+		exemplo de resposta:  M index.html
+
+	Nota: Os sinalizadores de status são:
+		Util para entender rapidamente quais arquivos estão em diferentes estágios de mudança.
+		?? - Untracked files  (Arquivos existem, mas não rastreados)
+		A - Files added to stage  (Arquivos adicionados na área de preparação (staging area).)
+		M - Modified files  (arquivos modificados,  alterações feitas, mas não foram adicionados à área de preparação.)
+		D - Deleted files  (Arquivos excluídos, indica que foi excluído e precisa ser confirmada em um "commit".)
+
+	Vemos que o ficheiro que esperávamos foi modificado (exemplo: M index.html). Por isso, vamos submetê-lo(commit) diretamente:	
+		git commit -a -m "Updated index.html with a new line"
+	
+		-a: Essa é uma opção do comando "commit" usada para indicar que você deseja adicionar automaticamente todas as alterações nos arquivos já rastreados (que estão sob controle de versão) ao "staging area" (área de preparação) antes de fazer o commit.
+	
+	Aviso: Não pule o estágio de preparação no Git. Ele permite controlar quais alterações vão para os commits. Ignorá-lo pode causar inclusão acidental de mudanças erradas nos commits. Use o estágio para selecionar só o necessário, mantendo o histórico limpo.
+
+Registo de Commit do Git:
+	 ver o histórico de commits de um repositório, use:
+		git log
+	
+
+------------------------------------------------------------------------------------------------------------
+
+
+"Commit" no Git é uma ação que registra permanentemente alterações no histórico do repositório.
+"branch" no Git é uma ramificação independente do código principal que permite trabalhar em diferentes partes do projeto sem afetar diretamente o código principal. É usado para desenvolvimento paralelo, organização e colaboração em projetos de software. Branches podem ser criados, mesclados e excluídos conforme necessário para gerenciar o fluxo de trabalho.
+
+[master (root-commit) 403b61a]: Isso indica que um novo commit foi feito. 
+[master] mostra que o commit foi feito na ramificação principal (branch 'master'). 
+(root-commit) indica que é o primeiro commit da linha do tempo. 
+403b61a é um identificador único (hash) para esse commit.
+mensagem de commit que descreve as alterações feitas neste commit. No exemplo, a mensagem é "Exibindo mensagem 'hello world!'", que geralmente descreve a natureza das alterações.
+1 file changed, 0 insertions(+), 0 deletions(-): Isso indica que uma alteração foi feita em um arquivo. Neste caso, um arquivo foi modificado. Não houve adições (insertions) ou exclusões (deletions) de linhas de código.
+create mode 100644 main.py: Isso mostra que um novo arquivo chamado main.py foi criado no commit. O create mode 100644 é uma informação sobre as permissões e o tipo de arquivo.
+
+"branch" (ou ramificação) é uma linha de desenvolvimento independente dentro de um repositório. 
+Cada branch representa uma sequência de commits (alterações de código) que podem ser diferentes 
+das outras branches no mesmo repositório.
+    - Isolar Desenvolvimento: 
+        Elas permitem que várias pessoas ou equipes trabalhem em diferentes funcionalidades ou correções 
+        de bugs ao mesmo tempo sem interferir no trabalho umas das outras. Cada branch contém um conjunto 
+        separado de alterações.
+    - Gestão de Versões: 
+        Cada branch pode representar uma versão diferente do software. Isso é útil para manter diferentes 
+        versões estáveis e em desenvolvimento do seu projeto.
+    - Testar Novas Funcionalidades: 
+        Você pode criar branches para testar novas funcionalidades antes de mesclá-las (merge) na branch principal.
+    - Correção de Bugs: 
+        Você pode criar branches para isolar e corrigir problemas (bugs) sem afetar o código na branch principal.
+A branch principal geralmente é chamada de "master" ou "main", mas você pode criar e nomear branches de 
+acordo com suas necessidades. Branches facilitam a colaboração, a organização e o gerenciamento de projetos 
+de software.
+
+
+-  e-mail para que identifica você como o autor de commits.
+    Comando:  git config --global user.email "you@example.com"
+
+
+- Nome que identifica você como o autor de commits.
+    Usado em conjunto com o endereço de e-mail para identificação.
+    Comando: git config --global user.name "Your Name"
+
+
+-  Exibir o email configurado:
+    git config user.email
+
+
+-  Exibir o nome configurado:
+    git config user.name
+
+
+- Iniciar o git na pasta atual:
+    Comando: git init
+
+
+- Version:
+    Exibe a versão do git.
+    Comando: git --version
+    
+
+- Preparando arquivos para commit:
+    Preparar arquivos e alterações específicos para serem confirmados (staged) no Git, 
+    adicionando-os à área de preparação (staging area).
+    Comando: git add caminho/do/arquivo
+        Adicionar um arquivo
+    Comando: git add .
+         Adiciona todas as alterações (arquivos modificados, excluídos e novos) na pasta atual e 
+         suas subpastas ao área de preparação (staging area) do Git. As alterações pendentes serão 
+         preparadas para serem incluídas em um próximo commit.
+
+
+- Estado atual do repositório: 
+    Mostra quais arquivos foram modificados, quais estão prontos para serem confirmados (staged), 
+    quais foram excluídos e quais não estão sendo rastreados pelo Git.
+    Comando: git status 
+
+
+-  commit simples e rápidos:
+    -a: 
+        Adiciona automaticamente todas as alterações (exceto arquivos não rastreados) na 
+        área de preparação (staging area) antes de fazer o commit.
+    -m "": 
+        Permite que você forneça uma mensagem de commit diretamente na linha de comando, 
+        descrevendo as alterações feitas no commit. Entre aspas deve ser inserida a sua mensagem de commit.
+    Comando: git commit -a -m "mensagem"
+
+
+- Navegar entre diferentes ramos (branches):
+    Comando: git checkout "nome"  # o main é o principal
+
+
+- Criar novo ramo (branches):
+    Comando: git checkout -b "teste"
+
+
+- Salvo alerações branches no remoto:
+    Enviar as alterações locais do repositório Git para um repositório remoto.
+    Comando: git push
+
+
+- Listar todos os branches do repositório e o atual:
+    Comando: git branch
+    Obs: a branch atual será precedida por um asterisco (*).
+
+
+- Unir o branche selecionado no branche atual:
+    Comando: git merge nome_do_branche
+
+
+- Retorna todas as atualizações do diretório remoto para o repositório local:
+    Comando: git pull
+
+
+- Para onde enviar o código:
+    comando: git remote add origin https://...
+
+
+- Criar ramo de versão (branches) no diretório remoto:
+    Comando: git push --set-upstream origin nome_branche
+    Obs: No repositório na opção 'main' do ramificação, é criado o branche
+
+
+- Clonagem de projeto para repositório local:
+    Comando: git clone https://... nome_da_pasta_clone
+
+
+- Excluir todos os arquivos adicionados sem querer ou que não estão adicionados:
+    Comando: git clean -f
+
+
+- Excluir arquivo do repositório local: 
+    Comando: git rm nome_do_arquivo
+
+
+- Voltar remove alterações para o ultimo commit salvo:
+    Comando: git checkout .\nome_do_arquivo
+
+
+- Historico de commits:
+    Comando: git log
+    Comando: git reflog
+    Obs: pressione a tecla 'q' para sair do log.
+
+
+- Voltar versões:
+    Comando: git reset --hard id
+    Comando: git reset --hard 2352d34
+
+
+- Listar arquivos que estão no diretório e gerenciados pelo git:
+    Comando: git ls-files
+
+
+Comando: git remote add origin https://github.com/FranciscoDeAssiis/git_test.git:
+    Este comando do Git está sendo usado para adicionar um repositório remoto chamado "origin" ao seu 
+    projeto Git. O URL https://github.com/FranciscoDeAssiis/git_test.git especifica a localização desse 
+    repositório remoto no GitHub. Após a execução deste comando, você pode se referir a esse repositório 
+    remoto como "origin" ao realizar operações como enviar (push) ou receber (pull) commits do GitHub. 
+    Isso estabelece uma conexão entre o seu repositório local e o repositório remoto no GitHub.
+
+Comando: git branch -M main:
+    Este comando do Git é usado para renomear a ramificação atual para "main". O -M indica que você deseja 
+    forçar a renomeação, mesmo que já exista uma ramificação chamada "main". Isso é comum quando você está 
+    fazendo a transição de uma nomenclatura anterior de ramificação (como "master") para o novo padrão 
+    "main" que é mais inclusivo e amplamente adotado. O resultado desse comando é que a ramificação atual 
+    será renomeada para "main".
+
+Comando: git push -u origin main:
+    git push: É usado para enviar (push) commits e alterações locais para um repositório remoto.
+    -u: Define a ramificação remota "origin/main" como a ramificação "upstream" para a ramificação local "main". Isso significa que, após usar este comando, o Git lembrará automaticamente que você deseja enviar commits da ramificação local "main" para a ramificação remota "origin/main" quando você executar git push no futuro.
+    origin: É o nome do repositório remoto onde você deseja enviar os commits.
+    main: É a ramificação local que você deseja enviar para a ramificação remota "main" no repositório "origin".
+    Resumindo, git push -u origin main envia os commits da sua ramificação local "main" para a ramificação remota "main" no repositório "origin" e estabelece a conexão para que o Git saiba para onde enviar os commits da próxima vez que você usar git push.
+
+
+1. git pull    # carregar o código mais atual
+2. gti checkout -b nova_branche branche_base    # Criar uma nova branche baseada na branche base
+3. Criando código...
+4. git add .    # Adicionando ao controle de versão
+5. git status    # está para ser adicionado
+6. git commit -m ""    # Adicionando criação/edição
+7. conferir novamente se está funcionando
+8. git checkout 'main'    # selecionar a versão principal/atual
+9. git pull    # carregar versão atual
+10. git merge nova_branche    # Adicionando alteração no código principal
+11. git push    # Enviando alteração para o servidor principal
+
+
+
+…or create a new repository on the command line
+echo "# interface_to_study_english" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/FranciscoDeAssiis/....git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/FranciscoDeAssiis/....git
+git branch -M main
+git push -u origin main
+
+
+
+1. git init
+    - Inicia o git na pasta 
+
+2. trabalhar o projeto
+    - Desenvolvendo o código
+
+3. git status
+    - No commits yet (não foi feito nenhum commit)
+    - new file: (adicionado)
+
+4. git add .
+4. git add "nome"
+    - Adicionando no controle de versão
+
+5. git config --global user.email "..."
+5. git config --global user.name "..."
+
+6. git commit -m "mensagem"
+    - Criando controle de versão
+
+7. git branch -M main
+    - Cria/nomeia o branch principal main
+
+8. git remote add origin https://... 
+    - Definir o destino de salvamento das informações
+
+7. git push
+    - Enviando informações para o destino/diretório informado
+
+8. finalizado. Desenvolva o código
+
+9. git status
+    - ver se houve modificações
+
+10. git add .
+    - modificação adicionada e pronto para ser enviado para próxima versão
+
+11. git commit -m "descrição da nova versão"
+    - segundo commit. Quanto mais commit, maior o histórico
+
+12. git push
+    - enviar alterações para o branche selecionado.
+
+13. git reflog
+    - Exibir histórico das versões adicionadas. Obs: aperte 'q' para sair.
+
+14. git reset --hard id(2e61e6b)
+    - Muda para a versão selecionada baseada no ID exibido com o comando 'git reflog'.
+    - Obs: pessa permição ao analista da empresa se a empresa permite.
+
+
+
+
+
+
+git --version
+git -v
+
+global:
+	git config --global user.name "w3schools-test"
+	git config --global user.email "test@w3schools.com"
+local:
+	git config user.name "w3schools-test"
+	git config user.email "test@w3schools.com"
+
+mkdir myproject		Criar um novo diretório chamado 'myproject'
+cd myproject 		Mudar para o diretório de trabalho chamado 'myproject'
+
+git init 		Inicializar o Git no diratório para monitorar
+
+ls 			lista os ficheiros no nosso diretório de trabalho atual:
+
+git status 		mostra as alterações não commitadas nos arquivos e indica o ramo atual do repositório Git.
+
+
+
+
+adiciona arquivos pela primeira vez no repositório vazio, todos eles não são rastreados. Para o Git rastreá-los, precisa testá-los ou adicioná-los ao ambiente de teste.
+
+O Staging Environment (ambiente de preparação) no Git é onde você seleciona e prepara as mudanças específicas que deseja incluir em um commit, permitindo um controle refinado sobre o que é registrado.
+
+	Adicionar ao Staging Environment:
+		git add index.html
+
+	Adiconar todos ao Staging Environment (novos, modificados e excluídos):
+		git add --all
+		git add -A (abreviação)
+
+
+ 
+O Commit é o ato de salvar essas mudanças em um ponto na história do projeto, criando uma captura do estado atual dos arquivos.	
+
+	git status --short  	Ver as alterações feitas de uma forma mais compacta.
+		exemplo de retorno: M index.html
+
+	Sinalizadores de status:
+		Util para entender rapidamente quais arquivos estão em diferentes estágios de mudança.
+		?? - Untracked files  (Arquivos existem, mas não rastreados)
+		A - Files added to stage  (Arquivos adicionados na área de preparação (staging area).)
+		M - Modified files  (arquivos modificados,  alterações feitas, mas não foram adicionados à área de preparação.)
+		D - Deleted files  (Arquivos excluídos, indica que foi excluído e precisa ser confirmada em um "commit".)
+
+	criar um novo "commit" incluindo todas as mudanças feitas nos arquivos rastreados e adicioná-las à área de preparação:
+		Código de exemplo:
+			git commit -a -m "Updated index.html with a new line"	
+	
+		Decompondo Código:
+			-a : Opção do "commit" que adiciona automaticamente todas as alterações nos arquivos JÁ RASTREADOS antes de fazer o commit.
+	
+		AVISO: 
+			Geralmente, não é recomendável ignorar o ambiente de preparação. Saltar o passo da fase pode por vezes fazer com que inclua alterações indesejadas.
+	
+	git log		Visualizar o histórico de commits de um repositório.
+
+
+
+Juntos(Staging Environment e Commit), permitem rastrear e registrar alterações de forma organizada e controlada.
+ 
+
+
+
+	
+
+
+
+
+
+
+
+0cap, 0ch, 0cm, 0cqb, 0cqh, 
+0cqi, 0cqmax, 0cqmin, 0cqw, 
+0dvb, 0dvh, 0dvi, 0dvw, 0em, 
+0ex, 0ic, 0in, 0lh, 0lvb, 
+0lvh, 0lvi, 0lvw, 0mm, 0pc, 
+0pt, 0px, 0q, 0rcap, 0rch, 
+0rem, 0rex, 0ric, 0rlh, 0svb, 
+0svh, 0svi, 0svw, 0vb, 0vh, 
+0vi, 0vmax, 0vmin, 0vw 
+
+
+
+
+Aqui estão comandos comuns do Git usados em várias situações:
+
+	Iniciar uma Área de Trabalho:
+		clone: Clonar um repositório em um novo diretório.
+		init: Criar um repositório Git vazio ou reinicializar um existente.
+	
+	Trabalhar na Mudança Atual:
+		add: Adicionar conteúdo de arquivo ao índice.
+		mv: Mover ou renomear um arquivo, um diretório ou um link simbólico.
+		restore: Restaurar arquivos no diretório de trabalho.
+		rm: Remover arquivos do diretório de trabalho e do índice.
+	
+	Examinar o Histórico e o Estado:
+		bisect: Usar busca binária para encontrar o commit que introduziu um bug.
+		diff: Mostrar mudanças entre commits, commit e diretório de trabalho, etc.
+		grep: Imprimir linhas que correspondem a um padrão.
+		log: Mostrar registros de commits.
+		show: Mostrar vários tipos de objetos.
+		status: Mostrar o status do diretório de trabalho.
+	
+	Expandir, Marcar e Ajustar seu Histórico Comum:
+		branch: Listar, criar ou excluir branches.
+		commit: Registrar mudanças no repositório.
+		merge: Juntar duas ou mais histórias de desenvolvimento.
+		rebase: Reaplicar commits em cima de outra referência base.
+		reset: Restaurar o HEAD atual para um estado específico.
+		switch: Alternar entre branches.
+		tag: Criar, listar, excluir ou verificar uma tag assinada com GPG.
+	
+	Colaborar:
+		fetch: Baixar objetos e referências de outro repositório.
+		pull: Baixar e integrar com outro repositório ou branch local.
+		push: Atualizar referências remotas juntamente com objetos associados.
+		
+	Use git help -a e git help -g para listar subcomandos disponíveis e alguns guias de conceitos. Para informações detalhadas sobre um subcomando ou conceito específico, use git help <comando> ou git help <conceito>. Você também pode consultar git help git para uma visão geral do sistema Git.
+	
+	
+----------------------------------------------------------------------------------------------------
+Criar pasta:
+	mkdir
+
+ver diretorio:
+	ls
+
+ver caminho:
+	pwd
+
+Iniciar o Git na pasta:
+	git init
+
+criar arquivo:
+	touch
+
+mais informações
+	ls -l
+
+Exibir status dos arquivos diante do Git:
+	git status
+
+Adicionar um arquivo para commit:
+	git add 'nome_arquivo'
+
+Adicioanr todos os arquivos no local para commit:
+	git add .  (adiciona tudo)
+
+Criando commit:
+	git commit -m "mensagem descritiva"
+
+Histório:
+	git log
+	Obs: precione a tecla 'q' para sair.
+	autor/Email/Data/Descrição
+
+Histórico com IDs:
+	git reflog
+
+Obter ajuda:
+	git help
+
+Renomear:
+	mv = renomeia
+
+Remover arquivo:
+	git rm --cached tarefa.txt= tirar o arquivo do committed
+
+Excluir pasta:
+	rm -rf nomedapasta/
+
+	

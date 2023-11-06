@@ -1,0 +1,251 @@
+"Commit" no Git é uma ação que registra permanentemente alterações no histórico do repositório.
+"branch" no Git é uma ramificação independente do código principal que permite trabalhar em diferentes partes do projeto sem afetar diretamente o código principal. É usado para desenvolvimento paralelo, organização e colaboração em projetos de software. Branches podem ser criados, mesclados e excluídos conforme necessário para gerenciar o fluxo de trabalho.
+
+[master (root-commit) 403b61a]: Isso indica que um novo commit foi feito. 
+[master] mostra que o commit foi feito na ramificação principal (branch master). 
+(root-commit) indica que é o primeiro commit da linha do tempo. 
+403b61a é um identificador único (hash) para esse commit.
+mensagem de commit que descreve as alterações feitas neste commit. No exemplo, a mensagem é "Exibindo mensagem 'hello world!'", que geralmente descreve a natureza das alterações.
+1 file changed, 0 insertions(+), 0 deletions(-): Isso indica que uma alteração foi feita em um arquivo. Neste caso, um arquivo foi modificado. Não houve adições (insertions) ou exclusões (deletions) de linhas de código.
+create mode 100644 main.py: Isso mostra que um novo arquivo chamado main.py foi criado no commit. O create mode 100644 é uma informação sobre as permissões e o tipo de arquivo.
+
+"branch" (ou ramificação) é uma linha de desenvolvimento independente dentro de um repositório. 
+Cada branch representa uma sequência de commits (alterações de código) que podem ser diferentes 
+das outras branches no mesmo repositório.
+    - Isolar Desenvolvimento: 
+        Elas permitem que várias pessoas ou equipes trabalhem em diferentes funcionalidades ou correções 
+        de bugs ao mesmo tempo sem interferir no trabalho umas das outras. Cada branch contém um conjunto 
+        separado de alterações.
+    - Gestão de Versões: 
+        Cada branch pode representar uma versão diferente do software. Isso é útil para manter diferentes 
+        versões estáveis e em desenvolvimento do seu projeto.
+    - Testar Novas Funcionalidades: 
+        Você pode criar branches para testar novas funcionalidades antes de mesclá-las (merge) na branch principal.
+    - Correção de Bugs: 
+        Você pode criar branches para isolar e corrigir problemas (bugs) sem afetar o código na branch principal.
+A branch principal geralmente é chamada de "master" ou "main", mas você pode criar e nomear branches de 
+acordo com suas necessidades. Branches facilitam a colaboração, a organização e o gerenciamento de projetos 
+de software.
+
+
+-  e-mail para que identifica você como o autor de commits.
+    Comando:  git config --global user.email "you@example.com"
+
+
+- Nome que identifica você como o autor de commits.
+    Usado em conjunto com o endereço de e-mail para identificação.
+    Comando: git config --global user.name "Your Name"
+
+
+-  Exibir o email configurado:
+    git config user.email
+
+
+-  Exibir o nome configurado:
+    git config user.name
+
+
+- Iniciar o git na pasta atual:
+    Comando: git init
+
+
+- Version:
+    Exibe a versão do git.
+    Comando: git --version
+    
+
+- Preparando arquivos para commit:
+    Preparar arquivos e alterações específicos para serem confirmados (staged) no Git, 
+    adicionando-os à área de preparação (staging area).
+    Comando: git add caminho/do/arquivo
+        Adicionar um arquivo
+    Comando: git add .
+         Adiciona todas as alterações (arquivos modificados, excluídos e novos) na pasta atual e 
+         suas subpastas ao área de preparação (staging area) do Git. As alterações pendentes serão 
+         preparadas para serem incluídas em um próximo commit.
+
+
+- Estado atual do repositório: 
+    Mostra quais arquivos foram modificados, quais estão prontos para serem confirmados (staged), 
+    quais foram excluídos e quais não estão sendo rastreados pelo Git.
+    Comando: git status 
+
+
+-  commit simples e rápidos:
+    -a: 
+        Adiciona automaticamente todas as alterações (exceto arquivos não rastreados) na 
+        área de preparação (staging area) antes de fazer o commit.
+    -m "": 
+        Permite que você forneça uma mensagem de commit diretamente na linha de comando, 
+        descrevendo as alterações feitas no commit. Entre aspas deve ser inserida a sua mensagem de commit.
+    Comando: git commit -a -m "mensagem"
+
+
+- Navegar entre diferentes ramos (branches):
+    Comando: git checkout "nome"  # o main é o principal
+
+
+- Criar novo ramo (branches):
+    Comando: git checkout -b "teste"
+
+
+- Salvo alerações branches no remoto:
+    Enviar as alterações locais do repositório Git para um repositório remoto.
+    Comando: git push
+
+
+- Listar todos os branches do repositório e o atual:
+    Comando: git branch
+    Obs: a branch atual será precedida por um asterisco (*).
+
+
+- Unir o branche selecionado no branche atual:
+    Comando: git merge nome_do_branche
+
+
+- Retorna todas as atualizações do diretório remoto para o repositório local:
+    Comando: git pull
+
+
+- Para onde enviar o código:
+    comando: git remote add origin https://...
+
+
+- Criar ramo de versão (branches) no diretório remoto:
+    Comando: git push --set-upstream origin nome_branche
+    Obs: No repositório na opção 'main' do ramificação, é criado o branche
+
+
+- Clonagem de projeto para repositório local:
+    Comando: git clone https://... nome_da_pasta_clone
+
+
+- Excluir todos os arquivos adicionados sem querer ou que não estão adicionados:
+    Comando: git clean -f
+
+
+- Excluir arquivo do repositório local: 
+    Comando: git rm nome_do_arquivo
+
+
+- Voltar remove alterações para o ultimo commit salvo:
+    Comando: git checkout .\nome_do_arquivo
+
+
+- Historico de commits:
+    Comando: git log
+    Comando: git reflog
+    Obs: pressione a tecla 'q' para sair do log.
+
+
+- Voltar versões:
+    Comando: git reset --hard id
+    Comando: git reset --hard 2352d34
+
+
+- Listar arquivos que estão no diretório e gerenciados pelo git:
+    Comando: git ls-files
+
+
+Comando: git remote add origin https://github.com/FranciscoDeAssiis/git_test.git:
+    Este comando do Git está sendo usado para adicionar um repositório remoto chamado "origin" ao seu 
+    projeto Git. O URL https://github.com/FranciscoDeAssiis/git_test.git especifica a localização desse 
+    repositório remoto no GitHub. Após a execução deste comando, você pode se referir a esse repositório 
+    remoto como "origin" ao realizar operações como enviar (push) ou receber (pull) commits do GitHub. 
+    Isso estabelece uma conexão entre o seu repositório local e o repositório remoto no GitHub.
+
+Comando: git branch -M main:
+    Este comando do Git é usado para renomear a ramificação atual para "main". O -M indica que você deseja 
+    forçar a renomeação, mesmo que já exista uma ramificação chamada "main". Isso é comum quando você está 
+    fazendo a transição de uma nomenclatura anterior de ramificação (como "master") para o novo padrão 
+    "main" que é mais inclusivo e amplamente adotado. O resultado desse comando é que a ramificação atual 
+    será renomeada para "main".
+
+Comando: git push -u origin main:
+    git push: É usado para enviar (push) commits e alterações locais para um repositório remoto.
+    -u: Define a ramificação remota "origin/main" como a ramificação "upstream" para a ramificação local "main". Isso significa que, após usar este comando, o Git lembrará automaticamente que você deseja enviar commits da ramificação local "main" para a ramificação remota "origin/main" quando você executar git push no futuro.
+    origin: É o nome do repositório remoto onde você deseja enviar os commits.
+    main: É a ramificação local que você deseja enviar para a ramificação remota "main" no repositório "origin".
+    Resumindo, git push -u origin main envia os commits da sua ramificação local "main" para a ramificação remota "main" no repositório "origin" e estabelece a conexão para que o Git saiba para onde enviar os commits da próxima vez que você usar git push.
+
+
+1. git pull    # carregar o código mais atual
+2. gti checkout -b nova_branche branche_base    # Criar uma nova branche baseada na branche base
+3. Criando código...
+4. git add .    # Adicionando ao controle de versão
+5. git status    # está para ser adicionado
+6. git commit -m ""    # Adicionando criação/edição
+7. conferir novamente se está funcionando
+8. git checkout 'main'    # selecionar a versão principal/atual
+9. git pull    # carregar versão atual
+10. git merge nova_branche    # Adicionando alteração no código principal
+11. git push    # Enviando alteração para o servidor principal
+
+
+
+…or create a new repository on the command line
+echo "# interface_to_study_english" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/FranciscoDeAssiis/....git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/FranciscoDeAssiis/....git
+git branch -M main
+git push -u origin main
+
+
+
+1. git init
+    - Inicia o git na pasta 
+
+2. trabalhar o projeto
+    - Desenvolvendo o código
+
+3. git status
+    - No commits yet (não foi feito nenhum commit)
+    - new file: (adicionado)
+
+4. git add .
+4. git add "nome"
+    - Adicionando no controle de versão
+
+5. git config --global user.email "..."
+5. git config --global user.name "..."
+
+6. git commit -m "mensagem"
+    - Criando controle de versão
+
+7. git branch -M main
+    - Cria/nomeia o branch principal main
+
+8. git remote add origin https://... 
+    - Definir o destino de salvamento das informações
+
+7. git push
+    - Enviando informações para o destino/diretório informado
+
+8. finalizado. Desenvolva o código
+
+9. git status
+    - ver se houve modificações
+
+10. git add .
+    - modificação adicionada e pronto para ser enviado para próxima versão
+
+11. git commit -m "descrição da nova versão"
+    - segundo commit. Quanto mais commit, maior o histórico
+
+12. git push
+    - enviar alterações para o branche selecionado.
+
+13. git reflog
+    - Exibir histórico das versões adicionadas. Obs: aperte 'q' para sair.
+
+14. git reset --hard id(2e61e6b)
+    - Muda para a versão selecionada baseada no ID exibido com o comando 'git reflog'.
+    - Obs: pessa permição ao analista da empresa se a empresa permite.
+

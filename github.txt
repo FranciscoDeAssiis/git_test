@@ -1,0 +1,49 @@
+Criar repositório:
+    https://github.com/new
+    - Renomear repositório (obrigatorio)
+    - Descrição (opcional)
+    - Publico ou privado
+    - Adicionar um arquivo README de Descrição (recomendado)
+    - Adicionar um arquivo .gitignore para ignorar arquivos não rastreados (recomendado se necessario)
+    - Escolher uma licença
+    - Criar repositório (finalização)
+
+
+Criar um novo repositório na linha de comando:
+    echo "# git_test" >> README.md
+    git init
+    git add README.md
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/FranciscoDeAssiis/git_test.git
+    git push -u origin main
+
+Fazer push de um repositório existente a partir da linha de comando:
+    git remote add origin https://github.com/FranciscoDeAssiis/git_test.git
+    git branch -M main
+    git push -u origin main
+
+Importar código de outro repositório:
+    Carregar via URL
+
+
+Comando: git remote add origin https://github.com/FranciscoDeAssiis/git_test.git é:
+    Este comando do Git está sendo usado para adicionar um repositório remoto chamado "origin" ao seu 
+    projeto Git. O URL https://github.com/FranciscoDeAssiis/git_test.git especifica a localização desse 
+    repositório remoto no GitHub. Após a execução deste comando, você pode se referir a esse repositório 
+    remoto como "origin" ao realizar operações como enviar (push) ou receber (pull) commits do GitHub. 
+    Isso estabelece uma conexão entre o seu repositório local e o repositório remoto no GitHub.
+
+Comando: git branch -M main:
+    Este comando do Git é usado para renomear a ramificação atual para "main". O -M indica que você deseja 
+    forçar a renomeação, mesmo que já exista uma ramificação chamada "main". Isso é comum quando você está 
+    fazendo a transição de uma nomenclatura anterior de ramificação (como "master") para o novo padrão 
+    "main" que é mais inclusivo e amplamente adotado. O resultado desse comando é que a ramificação atual 
+    será renomeada para "main".
+
+Comando: git push -u origin main:
+    git push: É usado para enviar (push) commits e alterações locais para um repositório remoto.
+    -u: Define a ramificação remota "origin/main" como a ramificação "upstream" para a ramificação local "main". Isso significa que, após usar este comando, o Git lembrará automaticamente que você deseja enviar commits da ramificação local "main" para a ramificação remota "origin/main" quando você executar git push no futuro.
+    origin: É o nome do repositório remoto onde você deseja enviar os commits.
+    main: É a ramificação local que você deseja enviar para a ramificação remota "main" no repositório "origin".
+    Resumindo, git push -u origin main envia os commits da sua ramificação local "main" para a ramificação remota "main" no repositório "origin" e estabelece a conexão para que o Git saiba para onde enviar os commits da próxima vez que você usar git push.
